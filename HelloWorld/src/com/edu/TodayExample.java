@@ -12,7 +12,7 @@ package com.edu;
 // 몸무게 : 63.4
 // 적정몸무게: (키 - 100) * 0.9 => 60.3 크면 과제충 작으면 저체중.
 // +- 5키로...55.3< < 65.3
-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
+
 public class TodayExample {
 	public static void main(String[] args) {
 		double weight = 67.5; // 72.5 ~ 62.5 사이에 적정.
