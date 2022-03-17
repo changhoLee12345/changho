@@ -27,10 +27,6 @@ public class ObjectExample {
 		System.out.println(s1.getStudName() + "의 합계: " + s1.getSumScore());
 		System.out.println(s1.getStudName() + "의 평균: " + s1.getAvgScore());
 
-//
-public class ObjectExample {
-	public static void main(String[] args) {
-
 		System.out.println("구구단 출력..");
 
 		for (int j = 0; j <= 9; j++) {
@@ -39,10 +35,12 @@ public class ObjectExample {
 					System.out.print("  [" + i + "단]        ");
 				} else {
 //					System.out.print(i + " * " + j + " = " + (i * j) + " ");
-					System.out.printf("%2d * %2d = %2d  ", i, j, (i*j));
+					System.out.printf("%2d * %2d = %2d  ", i, j, (i * j));
 				}
 			}
 			System.out.println();
 		}
 	}
+
+//
 }
