@@ -1,6 +1,6 @@
 package com.edu;
 
-//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
+//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
 public class ObjectExample {
 	public static void main(String[] args) {
 
