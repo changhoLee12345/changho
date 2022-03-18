@@ -55,18 +55,22 @@ public class BankApp {
 	// 계좌생성 메소드.
 	public static void createAccount() {
 		System.out.println("계좌생성기능.");
-		System.out.print("계좌번호입력>> ");
-		String accNo = scn.next();
+		String accNo;
+		while (true) {
+			System.out.print("계좌번호입력>> ");
+			accNo = scn.next();
+			// 계좌번호 있는지 체크.
+			if (searchAccountNo(accNo) != null) {
+				System.out.println("이미 있는 계좌번호입니다.");
+				continue;
+			}
+			break;
+		}
+
 		System.out.print("예금주입력>> ");
 		String accName = scn.next();
 		System.out.print("예금액입력>> ");
 		int accMoney = scn.nextInt();
-
-		// 계좌번호 있는지 체크.
-		if (searchAccountNo(accNo) != null) {
-			System.out.println("이미 있는 계좌번호입니다.");
-			return;
-		}
 
 		Account accnt = new Account(accNo, accName, accMoney);
 
