@@ -55,6 +55,7 @@ public class BankApp {
 	// 계좌생성 메소드.
 	public static void createAccount() {
 		System.out.println("계좌생성기능.");
+
 		String accNo;
 		while (true) {
 			System.out.print("계좌번호입력>> ");
@@ -64,6 +65,7 @@ public class BankApp {
 				System.out.println("이미 있는 계좌번호입니다.");
 				continue;
 			}
+			// 사용가능한 계좌번호가 맞으면 while 반복문을 벗어난다.
 			break;
 		}
 
