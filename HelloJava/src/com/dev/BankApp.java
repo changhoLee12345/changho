@@ -30,6 +30,8 @@ public class BankApp {
 			} else if (menu == 4) {
 				findAccountMoney();
 			} else if (menu == 5) {
+				transferAmount();
+			} else if (menu == 6) {
 				System.out.println("프로그램을 종료합니다.");
 				break;
 			} else if (menu == 9) {
@@ -51,6 +53,38 @@ public class BankApp {
 				+ "=====================================================\r\n"//
 				+ "선택> ";
 		System.out.print(menu);
+	}
+
+	// 송금기능.
+	public static void transferAmount() {
+		System.out.print("송금할 계좌정보>> ");
+		String sendAccntNo = scn.next();
+		System.out.print("송금할 금액>> ");
+		int amt = scn.nextInt();
+		System.out.print("입금받을 계좌정보>> ");
+		String receiveAccntNo = scn.next();
+
+		Account sendAccnt = searchAccountNo(sendAccntNo);
+		Account receiveAccnt = searchAccountNo(receiveAccntNo);
+
+		if (sendAccntNo.equals(receiveAccntNo)) {
+			System.out.println("송금계좌와 입금계좌가 동일합니다.");
+			return;
+		} else if (sendAccnt == null) {
+			System.out.println("송금계좌정보가 정확하지 않습니다.");
+			return;
+		} else if (receiveAccnt == null) {
+			System.out.println("입금계좌정보가 정확하지 않습니다.");
+			return;
+		} else if (sendAccnt.getMoney() < amt) {
+			System.out.println("송금할 금액이 송금계좌의 잔액을 초과합니다.");
+			return;
+		}
+
+		sendAccnt.setMoney(sendAccnt.getMoney() - amt);
+		receiveAccnt.setMoney(receiveAccnt.getMoney() + amt);
+		System.out.println("정상적으로 처리되었습니다.");
+
 	}
 
 	// 계좌생성 메소드.
