@@ -94,21 +94,36 @@ public class BankApp {
 		System.out.print("예금액 입력>> ");
 		int amt = scn.nextInt();
 		int checkCnt = 0; // 조회가 됐는지 체크 여부 변수.
-		for (int i = 0; i < banks.length; i++) {
-			if (banks[i] != null && banks[i].getAccNo().equals(ano)) { // 계좌번호 있을 경우..
-				// 계좌번호 조회됐을 때..
-				checkCnt = 1;
-				int currAmt = banks[i].getMoney();
 
-				// 예금액이 10만원을 초과하지 못하도록..
-				if (currAmt + amt > 100000) {
-					checkCnt = 2;
-					break;
-				}
-				banks[i].setMoney(currAmt + amt); // 잔액 + 입금액.
-				break;
+		Account findAccount = searchAccountNo(ano);
+		if (findAccount != null) {
+			checkCnt = 1;
+			int currAmt = findAccount.getMoney();
+
+			// 예금액이 10만원을 초과하지 못하도록..
+			if (currAmt + amt > 100000) {
+				checkCnt = 2;
+			} else {
+				findAccount.setMoney(currAmt + amt); // 잔액 + 입금액.
 			}
 		}
+
+//		for (int i = 0; i < banks.length; i++) {
+//			if (banks[i] != null && banks[i].getAccNo().equals(ano)) { // 계좌번호 있을 경우..
+//				// 계좌번호 조회됐을 때..
+//				checkCnt = 1;
+//				int currAmt = banks[i].getMoney();
+//
+//				// 예금액이 10만원을 초과하지 못하도록..
+//				if (currAmt + amt > 100000) {
+//					checkCnt = 2;
+//					break;
+//				}
+//				banks[i].setMoney(currAmt + amt); // 잔액 + 입금액.
+//				break;
+//			}
+//		}
+
 		if (checkCnt == 1) {
 			System.out.println("정삭적으로 처리되었습니다.");
 		} else if (checkCnt == 2) {
@@ -122,11 +137,45 @@ public class BankApp {
 	// 출금 메소드.
 	public static void withdraw() {
 		System.out.println("출금기능.");
+		System.out.print("계좌번호>> ");
+		String ano = scn.next();
+		System.out.print("예금액 입력>> ");
+		int amt = scn.nextInt();
+		int checkCnt = 0; // 조회가 됐는지 체크 여부 변수.
+
+		Account findAccount = searchAccountNo(ano);
+		if (findAccount != null) {
+			checkCnt = 1;
+			int currAmt = findAccount.getMoney();
+
+			// 잔액을 초과해서 출금을 못하도록..
+			if (currAmt < amt) {
+				checkCnt = 2;
+			} else {
+				findAccount.setMoney(currAmt - amt); // 잔액 - 입금액.
+			}
+		}
+
+		if (checkCnt == 1) {
+			System.out.println("정삭적으로 처리되었습니다.");
+		} else if (checkCnt == 2) {
+			System.out.println("잔액을 초과했습니다.");
+		} else {
+			System.out.println("계좌번호가 없습니다.");
+		}
 	}
 
 	// 잔액조회 메소드.
 	public static void findAccountMoney() {
 		System.out.println("조회기능.");
+		System.out.print("계좌번호>> ");
+		String ano = scn.next();
+		Account findAccount = searchAccountNo(ano);
+		if (findAccount == null) {
+			System.out.println("계좌가 존재하지 않습니다.");
+			return;
+		}
+		System.out.println("잔액: " + findAccount.getMoney());
 	}
 
 	// 전체리스트 출력.
