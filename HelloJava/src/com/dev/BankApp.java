@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 // BankApp(main method), Account(계좌번호,예금주,잔액) 
 public class BankApp {
+
 	static Account[] banks = new Account[100];
 	static Scanner scn = new Scanner(System.in);
 
@@ -12,7 +13,7 @@ public class BankApp {
 	// 3.출금(번호,출금액) -> 잔액보다 큰 금액 출금 못하도록.
 	// 4.잔액조회(번호)
 	// 5.종료.
-	// 오늘이 자바 4일째인데 ... 벅찬 프로그램입니다...
+	// 오늘이 자바 5일째인데 ... 적절한 프로그램입니다...
 
 	public static void main(String[] args) {
 
@@ -60,6 +61,13 @@ public class BankApp {
 		String accName = scn.next();
 		System.out.print("예금액입력>> ");
 		int accMoney = scn.nextInt();
+
+		// 계좌번호 있는지 체크.
+		if (searchAccountNo(accNo) != null) {
+			System.out.println("이미 있는 계좌번호입니다.");
+			return;
+		}
+
 		Account accnt = new Account(accNo, accName, accMoney);
 
 		for (int i = 0; i < banks.length; i++) {
@@ -122,6 +130,17 @@ public class BankApp {
 				System.out.println(banks[i].toString());
 			}
 		}
+	}
+
+	// 계좌번호를 입력하면 배열(banks)에서 그 계좌번호를 반환 없으면 null
+	// 100개 35개 저장
+	public static Account searchAccountNo(String accNo) {
+		for (int i = 0; i < banks.length; i++) {
+			if (banks[i] != null && banks[i].getAccNo().equals(accNo)) {
+				return banks[i];
+			}
+		}
+		return null; // 클래스 -> null(Student, Car,
 	}
 
 }

@@ -38,6 +38,7 @@ public class Student {
 	public static void callStatic() {
 		System.out.println("정적메소드 실행...");
 	}
+
 	// 영어,국어,수학 ==> 값이 저장되면 평균...
 	public double getAvgScore() {
 		return this.getSumScore() / 3.0;
