@@ -46,7 +46,8 @@ public class BankApp {
 				+ "     2.예금(번호,예금액) -> 최고예금액 100,000원.\r\n" //
 				+ "     3.출금(번호,출금액) -> 잔액보다 큰 금액 출금 못하도록.\r\n" //
 				+ "     4.잔액조회(번호)\r\n" //
-				+ "     5.종료.\r\n" //
+				+ "     5.송금(송금번호, 금액, 입금번호)\r\n"// transferAmount()
+				+ "     6.종료.\r\n" //
 				+ "=====================================================\r\n"//
 				+ "선택> ";
 		System.out.print(menu);
@@ -89,6 +90,7 @@ public class BankApp {
 	// 예금 메소드.
 	public static void deposit() {
 		System.out.println("예금기능.");
+
 		System.out.print("계좌번호>> ");
 		String ano = scn.next();
 		System.out.print("예금액 입력>> ");
@@ -97,7 +99,7 @@ public class BankApp {
 
 		Account findAccount = searchAccountNo(ano);
 		if (findAccount != null) {
-			checkCnt = 1;
+			checkCnt = 1; // 찾는 조건에 맞는 계좌존재.
 			int currAmt = findAccount.getMoney();
 
 			// 예금액이 10만원을 초과하지 못하도록..
@@ -107,22 +109,6 @@ public class BankApp {
 				findAccount.setMoney(currAmt + amt); // 잔액 + 입금액.
 			}
 		}
-
-//		for (int i = 0; i < banks.length; i++) {
-//			if (banks[i] != null && banks[i].getAccNo().equals(ano)) { // 계좌번호 있을 경우..
-//				// 계좌번호 조회됐을 때..
-//				checkCnt = 1;
-//				int currAmt = banks[i].getMoney();
-//
-//				// 예금액이 10만원을 초과하지 못하도록..
-//				if (currAmt + amt > 100000) {
-//					checkCnt = 2;
-//					break;
-//				}
-//				banks[i].setMoney(currAmt + amt); // 잔액 + 입금액.
-//				break;
-//			}
-//		}
 
 		if (checkCnt == 1) {
 			System.out.println("정삭적으로 처리되었습니다.");
