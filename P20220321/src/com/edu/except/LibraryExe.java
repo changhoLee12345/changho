@@ -64,6 +64,8 @@ public class LibraryExe {
 
 		} // end of while()
 		showMessage("=== end of program ===");
+		
+		scn.close();
 	}
 
 	public static void showMessage(String str) {
