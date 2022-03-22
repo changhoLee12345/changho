@@ -1,7 +1,7 @@
 package com.edu;
 
 public class Bus extends Vehicle {
-
+	09IBVNYWNXMAUDR7F7N8NIWASH58RACV
 	public Bus() {
 		super.setMaxSpeed(110);
 	}
