@@ -24,17 +24,12 @@ public class MemberExample {
 		for (int i = 0; i < memList.size(); i++) {
 			System.out.println(memList.get(i));
 		}
-		
-		HashSet<Member> memSet = new HashSet<Member>(); // 
+
+		HashSet<Member> memSet = new HashSet<Member>(); //
 		memSet.add(new Member("user1", "홍길동")); // hashCode(), equals()
 		memSet.add(new Member("user1", "홍길동"));
-		
+
 		System.out.println(memSet.size());
-		
-		
-		
-		
-		
-		
+
 	}
 }
