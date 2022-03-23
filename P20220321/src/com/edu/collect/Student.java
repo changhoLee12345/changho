@@ -52,5 +52,11 @@ public class Student {
 	public void setKorScore(int korScore) {
 		this.korScore = korScore;
 	}
+	// toString() => 재정의.
+
+	@Override
+	public String toString() {
+		return "학생정보[ 학생번호: " + studentNo + ", 이름: " + name + ", 영어: " + engScore + ", 국어: " + korScore + "]";
+	}
 
 }
