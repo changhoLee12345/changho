@@ -7,8 +7,10 @@ public class IDCheck {
 	// String getGender() -> 남자, 여자.
 	public String getGender(String ssno) {
 
-		ssno = ssno.replace("-", "");
-		ssno = ssno.replace(" ", "");
+//		ssno = ssno.replace("-", "");
+//		ssno = ssno.replace(" ", "");
+		ssno = ssno.replaceAll("\\W", "");
+		System.out.println(ssno);
 
 		if (ssno.charAt(6) == '1' || ssno.charAt(6) == '3') {
 			return "남자";
