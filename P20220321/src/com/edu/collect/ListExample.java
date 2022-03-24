@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 public class ListExample {
 	public static void main(String[] args) {
+		
 		String[] strings = new String[10];
 		for (int i = 0; i < strings.length; i++) {
 			if (strings[i] == null) {

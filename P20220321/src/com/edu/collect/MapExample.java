@@ -6,6 +6,7 @@ import java.util.Map;
 import java.util.Set;
 
 public class MapExample {
+	
 	public static void main(String[] args) {
 		// Map: {key:value}, {key1:value1},
 		Map<String, Integer> map = new HashMap<String, Integer>();
