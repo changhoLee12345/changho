@@ -135,7 +135,5 @@ public class StudentApp {
 			}
 		} // end of while()
 		System.out.println("end of program");
-
 	}
-
 }

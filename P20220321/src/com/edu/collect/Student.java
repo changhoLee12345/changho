@@ -1,6 +1,8 @@
 package com.edu.collect;
 
-public class Student {
+import java.io.Serializable;
+
+public class Student implements Serializable {
 	// 학생번호(1,2,3), 이름(홍길동), 영어(80), 국어(70).
 	private int studentNo;
 	private String name;
