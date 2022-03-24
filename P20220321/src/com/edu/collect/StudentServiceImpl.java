@@ -5,7 +5,7 @@ import java.util.List;
 public class StudentServiceImpl implements StudentService {
 
 	@Override
-	public void insertStudent() {
+	public void insertStudent(Student student) {
 
 	}
 
