@@ -1,18 +1,41 @@
 package com.edu.collect;
 
-import java.io.BufferedInputStream;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class StudentServiceFile implements StudentService {
 
 	List<Student> students;
+	File file;
+
+	public void saveToFile() {
+		try {
+			FileWriter fw = new FileWriter(file);
+			BufferedWriter bw = new BufferedWriter(fw);
+
+			for (Student student : students) {
+				bw.write(student.getStudentNo() + " " + student.getName() + " "//
+						+ student.getEngScore() + " " + student.getKorScore() + "\n");
+			}
+
+			bw.close();
+			fw.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
 
 	public StudentServiceFile() {
-		File file = new File("student.dat");
+
+		students = new ArrayList<Student>();
+		file = new File("student.dat");
 		if (!file.exists()) {
 			try {
 				file.createNewFile();
@@ -21,14 +44,20 @@ public class StudentServiceFile implements StudentService {
 			}
 		}
 
+		String readBuffer = null;
 		try {
-			FileInputStream fis = new FileInputStream(file);
-			BufferedInputStream bis = new BufferedInputStream(fis);
-			
-			bis.read(null)
-			
-			fis.close();
-			bis.close();
+			FileReader fr = new FileReader(file);
+			BufferedReader br = new BufferedReader(fr);
+
+			while ((readBuffer = br.readLine()) != null) {
+//				System.out.println(readBuffer);
+				String[] contents = readBuffer.split(" ");
+				students.add(new Student(Integer.parseInt(contents[0]), contents[1]//
+						, Integer.parseInt(contents[2]), Integer.parseInt(contents[3])));
+			}
+
+			fr.close();
+			br.close();
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
@@ -39,7 +68,7 @@ public class StudentServiceFile implements StudentService {
 
 	@Override
 	public void insertStudent(Student student) {
-
+		students.add(student);
 	}
 
 	@Override
@@ -49,12 +78,22 @@ public class StudentServiceFile implements StudentService {
 
 	@Override
 	public List<Student> studentList() {
-		return null;
+		return students;
 	}
 
 	@Override
 	public void modifyStudent(Student student) {
 
+	}
+
+	@Override
+	public void removeStudent(int sno) {
+
+	}
+
+	@Override
+	public List<Student> searchStudent(String name) {
+		return null;
 	}
 
 }

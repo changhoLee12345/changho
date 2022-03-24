@@ -66,10 +66,15 @@ public class StudentApp {
 			}
 			return searchList;
 		}
+
+		@Override
+		public void saveToFile() {
+			
+		}
 	} // end of StudentServiceImpl
 
 	public void execute() {
-		StudentService service = new StudentServiceImpl();
+		StudentService service = new StudentServiceFile();
 		// 메뉴: 1.추가 2.리스트 3.한건조회(학생번호) 4.수정 5.삭제 6.이름조회(이름) 9.종료
 		while (true) {
 			System.out.println("1.추가 2.리스트 3.한건조회 4.수정 9.종료");
@@ -131,6 +136,7 @@ public class StudentApp {
 
 			} else if (menu == 9) {
 				System.out.println("프로그램을 종료합니다.");
+				service.saveToFile();
 				break;
 			}
 		} // end of while()
