@@ -69,7 +69,7 @@ public class StudentApp {
 
 		@Override
 		public void saveToFile() {
-			
+			System.exit(0);
 		}
 	} // end of StudentServiceImpl
 
