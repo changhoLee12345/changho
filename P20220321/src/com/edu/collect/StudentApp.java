@@ -11,10 +11,7 @@ public class StudentApp {
 
 	// 생성자
 	public StudentApp() {
-		list.add(new Student(101, "권가희", 50, 60));
-		list.add(new Student(102, "유해정", 70, 80));
-		list.add(new Student(103, "이유빈", 90, 70));
-		list.add(new Student(201, "유해정", 80, 90));
+
 	}
 
 	// 멤버클래스.

@@ -1,89 +1,41 @@
 package com.edu.collect;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+import java.io.*;
+import java.util.*;
 
 public class StudentServiceFile implements StudentService {
 
-	List<Student> students;
+	List<Student> list = new ArrayList<Student>();
 	File file;
-
-	public void saveToFile() {
-		try {
-			FileWriter fw = new FileWriter(file);
-			BufferedWriter bw = new BufferedWriter(fw);
-
-			for (Student student : students) {
-				bw.write(student.getStudentNo() + " " + student.getName() + " "//
-						+ student.getEngScore() + " " + student.getKorScore() + "\n");
-			}
-
-			bw.close();
-			fw.close();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
-
-	public StudentServiceFile() {
-
-		students = new ArrayList<Student>();
-		file = new File("student.dat");
-		if (!file.exists()) {
-			try {
-				file.createNewFile();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		}
-
-		String readBuffer = null;
-		try {
-			FileReader fr = new FileReader(file);
-			BufferedReader br = new BufferedReader(fr);
-
-			while ((readBuffer = br.readLine()) != null) {
-//				System.out.println(readBuffer);
-				String[] contents = readBuffer.split(" ");
-				students.add(new Student(Integer.parseInt(contents[0]), contents[1]//
-						, Integer.parseInt(contents[2]), Integer.parseInt(contents[3])));
-			}
-
-			fr.close();
-			br.close();
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-
-	}
 
 	@Override
 	public void insertStudent(Student student) {
-		students.add(student);
+		list.add(student);
 	}
 
 	@Override
 	public Student getStudent(int sno) {
+		for (int i = 0; i < list.size(); i++) {
+			if (list.get(i).getStudentNo() == sno) {
+				return list.get(i);
+			}
+		}
 		return null;
 	}
 
 	@Override
 	public List<Student> studentList() {
-		return students;
+		return list;
 	}
 
 	@Override
 	public void modifyStudent(Student student) {
-
+		for (int i = 0; i < list.size(); i++) {
+			if (list.get(i).getStudentNo() == student.getStudentNo()) {
+				list.get(i).setEngScore(student.getEngScore()); // 영어점수수정.
+				list.get(i).setKorScore(student.getKorScore()); // 국어점수수정.
+			}
+		}
 	}
 
 	@Override
@@ -93,7 +45,34 @@ public class StudentServiceFile implements StudentService {
 
 	@Override
 	public List<Student> searchStudent(String name) {
-		return null;
+		List<Student> searchList = new ArrayList<Student>();
+		// 찾았다고 종료X
+		for (int i = 0; i < list.size(); i++) {
+			// 같은 이름이 있는지 찾아보고 있으면 searchList.add()
+			if (list.get(i).getName().equals(name)) {
+				searchList.add(list.get(i));
+			}
+		}
+		return searchList;
+	}
+
+	@Override
+	public void saveToFile() {
+		// 작성했던 ArrayList<Student> list => 파일저장.
+		try {
+			FileWriter fw = new FileWriter("studentList.data");
+			BufferedWriter bw = new BufferedWriter(fw);
+
+			for (Student stud : list) {
+				bw.write(stud.getStudentNo() + "," + stud.getName() //
+						+ "," + stud.getEngScore() + "," + stud.getKorScore());
+			}
+			bw.close();
+			fw.close();
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 }
