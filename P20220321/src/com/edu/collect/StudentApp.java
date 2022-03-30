@@ -73,9 +73,10 @@ public class StudentApp {
 
 	// 메인기능 담당하는 execute()
 	public void execute() {
-		StudentService service = new StudentServiceImpl();
-		               service = new StudentServiceFile();
-//		               service = new StudentServiceOracle();
+		StudentService service = null;
+//		               service = new StudentServiceImpl();
+//		               service = new StudentServiceFile();
+		service = new StudentServiceOracle();
 		// 메뉴: 1.추가 2.리스트 3.한건조회(학생번호) 4.수정 5.삭제 6.이름조회(이름) 9.종료
 		while (true) {
 			System.out.println("1.추가 2.리스트 3.한건조회 4.수정 9.종료");
@@ -98,9 +99,13 @@ public class StudentApp {
 
 			} else if (menu == 2) {
 				List<Student> list = service.studentList();
+				System.out.println("=========== 학생리스트 =============");
+				System.out.println("  학생번호  학생명        영어     국어");
+				System.out.println("==================================");
 				for (Student s : list) {
-					System.out.println(s.toString());
+					System.out.printf(s.showList(), s.getStudentNo(), s.getName(), s.getEngScore(), s.getKorScore());
 				}
+				System.out.println("==================================");
 
 			} else if (menu == 3) { // 한건 조회.
 				System.out.println("조회할 학생번호 입력>>");

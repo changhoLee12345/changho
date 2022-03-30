@@ -60,5 +60,9 @@ public class Student implements Serializable {
 	public String toString() {
 		return "학생정보[ 학생번호: " + studentNo + ", 이름: " + name + ", 영어: " + engScore + ", 국어: " + korScore + "]";
 	}
+	
+	public String showList() {
+		return " %5d || %-5s || %5d || %5d\n";
+	}
 
 }
