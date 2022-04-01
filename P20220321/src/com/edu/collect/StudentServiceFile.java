@@ -104,4 +104,10 @@ public class StudentServiceFile implements StudentService {
 		}
 	}
 
+	@Override
+	public String checkResponsibility(String id, String pw) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
