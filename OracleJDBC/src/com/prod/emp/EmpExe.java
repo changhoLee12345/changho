@@ -71,10 +71,12 @@ public class EmpExe {
 				int eid = scn.nextInt();
 
 				Employee emp = dao.searchEmp(eid);
+//				Employee emp = new Employee();
+				
 				if (emp == null)
 					System.out.println("조회결과 없습니다");
 				else
-					System.out.println(emp.toString());
+					System.out.println(emp.getLastName());
 
 			} else if (menu == 9) { // 종료.
 				System.out.println("프로그램을 종료합니다.");
