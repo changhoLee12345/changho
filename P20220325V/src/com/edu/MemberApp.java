@@ -8,8 +8,13 @@ public class MemberApp {
 
 	List<Member> members = new ArrayList<Member>();
 	Scanner scn = new Scanner(System.in);
+	
+	public MemberApp() {
+		
+	}
 
 	// MemberService 를 구현하는 구현클래스를 선언.
+	// inner클래스.
 	class MemberServiceImpl implements MemberService {
 
 		@Override
@@ -43,11 +48,13 @@ public class MemberApp {
 			int menu = 0;
 			System.out.println("1.등록 2.수정 3.전체리스트 9.종료");
 			System.out.println("선택>>");
+			// 예외처리.
 			try {
-				menu = scn.nextInt(); //
+				menu = scn.nextInt(); // a 엔터.
 			} catch (Exception e) {
-
+				System.out.println("값을 잘못.");
 			}
+			
 			if (menu == 1) {
 				System.out.println("1.도서회원 2.축구회원 3.수영회원");
 				int menu2 = scn.nextInt();
