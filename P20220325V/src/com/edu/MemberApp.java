@@ -9,7 +9,11 @@ public class MemberApp {
 	List<Member> members = new ArrayList<Member>();
 	Scanner scn = new Scanner(System.in);
 
+	public MemberApp() {
+	}
+
 	// MemberService 를 구현하는 구현클래스를 선언.
+	// inner클래스.
 	class MemberServiceImpl implements MemberService {
 
 		@Override
@@ -39,15 +43,18 @@ public class MemberApp {
 		// 축구반=>기본정보+코치이름,락커룸이름
 		// 수영반=>기본정보+강사이름,수영등급
 		MemberService service = new MemberServiceImpl();
+
 		while (true) {
 			int menu = 0;
 			System.out.println("1.등록 2.수정 3.전체리스트 9.종료");
 			System.out.println("선택>>");
+			// 예외처리.
 			try {
-				menu = scn.nextInt(); //
+				menu = scn.nextInt(); // a 엔터.
 			} catch (Exception e) {
-
+				System.out.println("값을 잘못.");
 			}
+
 			if (menu == 1) {
 				System.out.println("1.도서회원 2.축구회원 3.수영회원");
 				int menu2 = scn.nextInt();
@@ -77,6 +84,7 @@ public class MemberApp {
 					SoccerMember mem = //
 							new SoccerMember(memberId, membName, phone, banName, roomName);
 					service.addMember(mem); // 부모>자식
+
 				} else if (menu2 == 3) {
 					System.out.println("강사이름을 입력>>> ");
 					String banName = scn.next();
@@ -85,6 +93,7 @@ public class MemberApp {
 					SwimMember mem = //
 							new SwimMember(memberId, membName, phone, banName, roomName);
 					service.addMember(mem); // 부모>자식
+
 				} else {
 					System.out.println("잘못된 회원메뉴를 선택했습니다.");
 				}
