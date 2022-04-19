@@ -23,18 +23,21 @@ class Friend {
 
 public class NestedApp {
 
-	Friend[] friends = new Friend[10];
-	Scanner scn = new Scanner(System.in);
+	private Friend[] friends = new Friend[10];
+	private Scanner scn = new Scanner(System.in);
 
-	interface FriendService {
+	private interface FriendService {
 		void add();
+
 		void modify();
+
 		void list();
+
 		void addArray(Friend friend);
 
 	}
 
-	class FriendApp implements FriendService {
+	private class FriendApp implements FriendService {
 
 		@Override
 		public void add() {
