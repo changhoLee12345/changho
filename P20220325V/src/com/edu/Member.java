@@ -7,6 +7,10 @@ public class Member {
 	private String phone;
 
 	// 생성자.
+	public Member() {
+
+	}
+
 	public Member(int memberId, String memberName, String phone) {
 		this.memberId = memberId;
 		this.memberName = memberName;
