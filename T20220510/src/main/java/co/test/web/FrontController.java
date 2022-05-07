@@ -23,8 +23,8 @@ public class FrontController extends HttpServlet {
 
 	public void init(ServletConfig config) throws ServletException {
 		map = new HashMap<String, Controller>();
-		
-		
+
+		map.put("/addBook.do", new AddBookControl());
 	}
 
 	protected void service(HttpServletRequest request, HttpServletResponse response)
