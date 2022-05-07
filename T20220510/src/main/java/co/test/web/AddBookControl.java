@@ -11,7 +11,7 @@ public class AddBookControl implements Controller {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		request.getRequestDispatcher("addOutput.jsp").forward(request, response);
+		request.getRequestDispatcher("result/addOutput.jsp").forward(request, response);
 
 	}
 

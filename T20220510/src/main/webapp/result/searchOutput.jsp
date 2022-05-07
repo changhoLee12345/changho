@@ -7,6 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
+
+	<h3>조회결과페이지</h3>
     <a href="${pageContext.servletContext.contextPath }/index.jsp">첫페이지</a>
 
 </body>

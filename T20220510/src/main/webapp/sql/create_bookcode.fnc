@@ -16,9 +16,9 @@ BEGIN
         v_code := TO_CHAR(SYSDATE, 'rrrrmmdd') || '-' || '000';
     
     END;
-    
-    IF v_code is null THEN
-      v_code := TO_CHAR(SYSDATE, 'rrrrmmdd') || '-' || '000';
+
+    IF v_code IS NULL THEN
+        v_code := TO_CHAR(SYSDATE, 'rrrrmmdd') || '-' || '000';
     END IF;
 
     SELECT TO_CHAR(SYSDATE, 'rrrrmmdd') || '-' || LPAD(to_number(SUBSTR(v_code, 10, 12)) + 1, 3, '0')

@@ -15,8 +15,10 @@
         저자: <input type="text" name="author"><br>
         출판사: <input type="text" name="press"><br>
         가격: <input type="text" name="price"><br>
-        <input type="submit" value="조회">
+        <input type="submit" value="등록">
     </form>
+    
+    <a href="${pageContext.servletContext.contextPath }/index.jsp">첫페이지</a>
 
 </body>
 
