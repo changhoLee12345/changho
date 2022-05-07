@@ -8,6 +8,10 @@
 	<servlet>
 		<servlet-name>main</servlet-name>
 		<servlet-class>co.test.web.FrontController</servlet-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>
 	</servlet>
 
 	<servlet-mapping>

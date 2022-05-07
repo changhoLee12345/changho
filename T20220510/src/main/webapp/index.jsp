@@ -10,7 +10,11 @@
 
 <body>
 
-    <a href="">도서등록</a>
+    <a href="view/add.jsp">도서등록</a>
+    <a href="view/search.jsp">도서검색</a>
+    <a href="view/modify.jsp">도서수정검색</a>
+    <a href="view/remove.jsp">도서삭제검색</a>
+    <a href="listBook.do">도서목록</a>
 
 </body>
 
