@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+    <a href="${pageContext.servletContext.contextPath }/index.jsp">첫페이지</a>
 
 </body>
 </html>
