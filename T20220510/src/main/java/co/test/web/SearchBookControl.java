@@ -25,10 +25,8 @@ public class SearchBookControl implements Controller {
 		} else if (job.equals("remove")) {
 			path = "view/remove.jsp";
 		}
-		System.out.println("bookCode: " + bookCode);
 
 		if (bookCode.isBlank()) {
-			System.out.println("error code");
 			request.setAttribute("error", "도서코드를 입력하세요.");
 			request.getRequestDispatcher(path).forward(request, response);
 			return;
