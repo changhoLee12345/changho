@@ -14,8 +14,8 @@ public class SearchBookControl implements Controller {
 
 		String path = "result/searchOutput.jsp";
 
-		String bookCode = request.getParameter("bookCode");
-		String job = request.getParameter("job");
+		String bookCode = null;
+		String job = null;
 
 		// 조회 도서코드가 없을 경우 결과를 보여주는 페이지 지정.
 		if (job.equals("search")) {

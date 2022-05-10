@@ -22,15 +22,6 @@
             </tr>
         </thead>
         <tbody>
-            <c:forEach var="book" items="${list }">
-                <tr>
-                    <td>${book.bookCode }</td>
-                    <td>${book.bookTitle }</td>
-                    <td>${book.bookAuthor }</td>
-                    <td>${book.bookPress }</td>
-                    <td>${book.bookPrice }</td>
-                </tr>
-            </c:forEach>
         </tbody>
     </table>
     
