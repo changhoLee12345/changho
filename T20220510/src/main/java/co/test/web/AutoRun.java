@@ -7,8 +7,6 @@ import java.util.TimerTask;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 
-import co.test.dao.ConcurrentDAO;
-
 public class AutoRun implements ServletContextListener {
 	Timer timer = null;
 
@@ -19,8 +17,6 @@ public class AutoRun implements ServletContextListener {
 			@Override
 			public void run() {
 				System.out.println(new Date().toString());
-				ConcurrentDAO dao = new ConcurrentDAO();
-				dao.insertDB();
 			}
 		}, 0, 1000 * 10);
 	}
