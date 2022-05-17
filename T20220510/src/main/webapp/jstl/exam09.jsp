@@ -9,5 +9,5 @@ Parameter: ${param.name } <br>
   이름: <input type="text" name="name">
   <input type="submit" value="전송">
 </form>
-
+<br>
 <a href="examList.jsp">리스트</a>

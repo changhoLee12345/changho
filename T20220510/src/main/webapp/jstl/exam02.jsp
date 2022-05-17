@@ -6,17 +6,17 @@
 	BookVO book = new BookVO();
 %>
 
-<c:set target="<%=book %>" property="title" value="The Secret" />
+<c:set target="<%=book %>" property="bookTitle" value="The Secret" />
 <%=book.getBookTitle() %><br>
 
 <h3>
-	<c:out value="${b.title }" />
+	<c:out value="${b.bookTitle }" />
 </h3>
 
 <c:set var="b" value="<%=book %>" />
-<c:set target="${b }" property="author" value="Byrne, Rhoda" />
-<c:out value="${b.author }" /><br>
-"${b.author }"
+<c:set target="${b }" property="bookAuthor" value="Byrne, Rhoda" />
+<c:out value="${b.bookAuthor }" /><br>
+"${b.bookAuthor }"
 <br>
 
 <a href="examList.jsp">리스트</a>

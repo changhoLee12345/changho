@@ -22,15 +22,15 @@
 <c:out value="${book }" />
 <br>
 
-<c:set var="title" value="${bookOne.title }" />
+<c:set var="title" value="${bookOne.bookTitle }" />
 <c:out value="${title }" /> + ${title }
 <br>
 
-<c:set var="author" value="${bookOne.author }" />
+<c:set var="author" value="${bookOne.bookAuthor }" />
 <c:out value="${author }" /> + ${author }
 <br>
 
-<c:set var="publisher" value="${bookOne.publisher }" />
+<c:set var="publisher" value="${bookOne.bookPress }" />
 <c:out value="${publisher }" /> - ${publisher }
 <br>
 
@@ -43,8 +43,8 @@
 	request.setAttribute("bookTwo", book);
 %>
 
-<c:set var="title">${bookTwo.title }</c:set>
-<c:out value="${title }" /> + ${title } + ${bookTwo.title }
+<c:set var="title">${bookTwo.bookTitle }</c:set>
+<c:out value="${title }" /> + ${title } + ${bookTwo.bookTitle }
 <br>
 
 <c:set var="author"><%=bookTwo.getBookAuthor() %></c:set>

@@ -5,11 +5,11 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <%
-ArrayList<BookVO> bookList = new ArrayList<>();
-bookList.add(new BookVO("2022050501", "The Secret", "Byrne Rhoda", "Atria Books", 1000));
-bookList.add(new BookVO("2022050502", "The Last Lecture", "Randy Paush", "hyperion", 2000));
-
-String[] bookCode = { "소설", "역사", "인문", "정치", "미술", "종교", "여행", "과학", "만화", "건강" };
+	ArrayList<BookVO> bookList = new ArrayList<>();
+	bookList.add(new BookVO("2022050501", "The Secret", "Byrne Rhoda", "Atria Books", 1000));
+	bookList.add(new BookVO("2022050502", "The Last Lecture", "Randy Paush", "hyperion", 2000));
+	
+	String[] bookCode = { "소설", "역사", "인문", "정치", "미술", "종교", "여행", "과학", "만화", "건강" };
 %>
 
 <hr>
@@ -36,5 +36,5 @@ String[] bookCode = { "소설", "역사", "인문", "정치", "미술", "종교"
 <c:forTokens items="소설/역사/인문/정치/미술/종교/여행/과학/만화/건강" delims="/" var="token">
 	${token }
 </c:forTokens>
-
+<br>
 <a href="examList.jsp">리스트</a>

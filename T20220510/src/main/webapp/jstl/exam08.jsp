@@ -4,5 +4,5 @@
 
 <h3>exam08.jsp</h3>
 ${param.id } / ${param["pwd"] }
-
+<br>
 <a href="examList.jsp">리스트</a>

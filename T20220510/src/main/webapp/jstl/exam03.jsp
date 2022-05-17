@@ -6,9 +6,9 @@ String str = request.getParameter("msg");
 %>
 <c:catch var="e">
 	<%
-	if (str.equals("add")) {
-		out.print(str);
-	}
+		if (str.equals("add")) {
+			out.print(str);
+		}
 	%>
 </c:catch>
 <c:out value="${e }" />

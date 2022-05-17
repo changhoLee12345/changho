@@ -14,5 +14,5 @@
 
 <fmt:parseDate value="2021-05-05 11:23:45" pattern="yyyy-MM-dd HH:mm:ss" var="date"></fmt:parseDate>
 <p>${date }</p>
-
+<br>
 <a href="examList.jsp">리스트</a>
