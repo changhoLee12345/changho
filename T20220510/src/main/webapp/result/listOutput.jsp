@@ -22,6 +22,15 @@
             </tr>
         </thead>
         <tbody>
+            <c:forEach items="${list }" var="vo">
+                <tr>
+                    <td>${vo.bookCode }</td>
+                    <td>${vo.bookTitle }</td>
+                    <td>${vo.bookAuthor }</td>
+                    <td>${vo.bookPress }</td>
+                    <td>${vo.bookPrice }</td>
+                </tr>
+            </c:forEach>
         </tbody>
     </table>
     

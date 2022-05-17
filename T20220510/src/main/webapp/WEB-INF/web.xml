@@ -4,6 +4,9 @@
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
 	id="WebApp_ID" version="4.0">
 	<display-name>T20220510</display-name>
+	<listener>
+		<listener-class>co.test.web.AutoRun</listener-class>
+	</listener>
 
 	<servlet>
 		<servlet-name>main</servlet-name>
