@@ -24,7 +24,8 @@
     <a href="exam13.jsp">exam13</a><br>
     <a href="exam14.jsp">exam14</a><br>
     <a href="exam15.jsp">exam15</a><br>
-    <a href="https://doitnow-man.tistory.com/90" target="_blank">참고사이트</a>
+    <a href="https://doitnow-man.tistory.com/90" target="_blank">JSTL 참고사이트</a><br>
+    <a href="https://codevang.tistory.com/206" target="_blank">커넥션 풀</a><br>
 </body>
 
 </html>
